@@ -1,4 +1,5 @@
-FROM openjdk:17-jdk-slim AS builder
+# Empezar con una imagen base conteniendo Java y Maven
+FROM maven:3.8.4-openjdk-17-slim as builder
 
 # Variables de entorno para Maven
 ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
