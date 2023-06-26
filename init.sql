@@ -201,8 +201,11 @@ INSERT INTO public.users
 VALUES(1, 'user', 'user', '$2a$10$vUojJCjY.I8tBhmU8Xd4GekNYGiCvOH4jKV1bxz2kCv6WoBuMQoPO', true);
 
 INSERT INTO public."storage"
-(storage_type_id, "name", "location", is_active)
-VALUES(0, '', '', true);
+(id, storage_type_id, "name", "location", is_active)
+VALUES(2, 1, 'Bodega B', 'una locacion.', true);
+INSERT INTO public."storage"
+(id, storage_type_id, "name", "location", is_active)
+VALUES(1, 1, 'Bodega A', 'Santa Ana, Metapan.', true);
 
 INSERT INTO public.users_roles
 (user_id, role_id)
