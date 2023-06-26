@@ -1,0 +1,82 @@
+<app-cards-home title="Registro de clientes" mostrarHeader="true" heigthHeader="50px" isOverflow="auto">
+    <form [formGroup]="clientForm" (ngSubmit)="accept()" autocomplete="off">
+        <div class="sucursal-data">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <mat-form-field class="clas-form-field" appearance="outline">
+                        <mat-label for="nameRoom">Nombre del cliente: </mat-label>
+                        <input matInput type="text" placeholder="ingrese el nombre" id="nameRoom"
+                            formControlName="name">
+                        <mat-hint class="text-danger">
+                            {{ErrorRequiredMsg('name')}}
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <mat-form-field class="clas-form-field" appearance="outline">
+                        <mat-label for="email">email: </mat-label>
+                        <input matInput type="email" placeholder="email" id="email" formControlName="email">
+                        <mat-hint class="text-danger">
+                            {{ErrorRequiredMsg('email')}}
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label>Pais
+                    </mat-label>
+                    <mat-select placeholder="Seleccione el pais" formControlName="country" required>
+                        <mat-option *ngFor="let u of countries" [value]="u.name">
+                            {{u.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('country')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label for="cel">Celular: </mat-label>
+                    <input matInput type="tel" id="cel" name="phone" formControlName="phone" required>
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('phone')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label for="address">Direccion: </mat-label>
+                    <textarea matInput id="address" formControlName="address"></textarea>
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('address')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <section>
+                    <mat-label for="isActive">Estado: </mat-label>
+                    <mat-checkbox type="checkbox" id="isActive" formControlName="isActive">
+                    </mat-checkbox>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex btn-actions">
+                <button class="btn-submit" type="submit" mat-button>
+                    Aceptar
+                </button>
+                <button class="btn-cancel" type="button" mat-button (click)="closeModal(false)">
+                    cancelar
+                </button>
+            </div>
+        </div>
+    </form>
+</app-cards-home>

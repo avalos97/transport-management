@@ -1,0 +1,65 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <span (click)="opened()" style="cursor: pointer;">
+        <img width="30" alt="Angular Logo" src="assets/images/hide.svg" />
+    </span>
+    <img width="32" alt="Angular Logo" src="assets/images/logo.png" />
+    <div class="spacer"></div>
+
+    <div class="d-flex align-items-center">
+        <h2>{{username}}</h2>
+        <span (click)="logout()" style="cursor: pointer;">
+            <img width="30" alt="Angular Logo" src="assets/images/exit.svg" />
+        </span>
+    </div>
+</div>
+<aside class="sidebar" [ngClass]="{'sidebar-modified': isOpen}">
+    <nav>
+        <button routerLink="/logistics-app/home" routerLinkActive="active">
+            <span>
+                <img alt="Angular Logo" src="assets/images/home.png" />
+                <span>Home</span>
+            </span>
+        </button>
+        <button routerLink="/logistics-app/shipment-list" routerLinkActive="active">
+            <span>
+                <img alt="Angular Logo" src="assets/images/shipment.png" />
+                <span>Envíos</span>
+            </span>
+        </button>
+        <button routerLink="/logistics-app/user-list">
+            <span>
+                <img alt="Angular Logo" src="assets/images/users.png" />
+                <span>Usuarios</span>
+            </span>
+        </button>
+        <button routerLink="/logistics-app/client-list" routerLinkActive="active">
+            <span>
+                <img alt="Angular Logo" src="assets/images/clients.png" />
+                <span>Clientes</span>
+            </span>
+        </button>
+        <button routerLink="/logistics-app/product-list" routerLinkActive="active">
+            <span>
+                <img alt="Angular Logo" src="assets/images/product.png" />
+                <span>Productos</span>
+            </span>
+        </button>
+        <button routerLink="/logistics-app/storage-list" routerLinkActive="active">
+            <span>
+                <img alt="Angular Logo" src="assets/images/storage.png" />
+                <span>Almacenes</span>
+            </span>
+        </button>
+        <button>
+            <span>
+                <img alt="Angular Logo" src="assets/images/info.png" />
+                <span>Acerca de</span>
+            </span>
+        </button>
+    </nav>
+
+</aside>
+<div style="margin-left: 55px;">
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,143 @@
+<app-cards-home title="Registro de Envios" mostrarHeader="true" heigthHeader="50px" isOverflow="auto">
+    <form [formGroup]="shipmentForm" (ngSubmit)="accept()" autocomplete="off">
+        <div class="sucursal-data">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <mat-form-field class="clas-form-field" appearance="outline">
+                        <mat-label for="guideNumber">Numero de guía: </mat-label>
+                        <input matInput type="text" placeholder="ingrese 10 digitos" id="guideNumber"
+                            formControlName="guideNumber">
+                        <mat-hint class="text-danger">
+                            {{ErrorRequiredMsg('guideNumber')}}
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <mat-form-field class="clas-form-field" appearance="outline">
+                        <mat-label>Fecha de envío</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="deliveryDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-hint class="text-danger">
+                            {{ErrorRequiredMsg('deliveryDate')}}
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label>Producto
+                    </mat-label>
+                    <mat-select placeholder="Seleccione el producto" formControlName="productId" required>
+                        <mat-option *ngFor="let p of productList" [value]="p.id">
+                            {{p.productType}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('productId')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label for="quantity">Cantidad: </mat-label>
+                    <input matInput type="number" placeholder="ingrese el nombre" id="quantity"
+                        formControlName="quantity">
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('quantity')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label>Cliente
+                    </mat-label>
+                    <mat-select placeholder="Seleccione el cliente" formControlName="clientId" required>
+                        <mat-option *ngFor="let c of clientList" [value]="c.id">
+                            {{c.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('clientId')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label>Almacenamiento
+                    </mat-label>
+                    <mat-select placeholder="Seleccione el almacenamiento" formControlName="storageId" required>
+                        <mat-option *ngFor="let s of storageList" [value]="s.id">
+                            {{s.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('storageId')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label>Tipo de almacenamiento
+                    </mat-label>
+                    <mat-select placeholder="Seleccione el tipo de almacenamiento" formControlName="shippingTypeId"
+                        required>
+                        <mat-option *ngFor="let s of shippingTypeList" [value]="s.id">
+                            {{s.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('shippingTypeId')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label for="fleetVehicleNumber">{{labelFleetVehicle}} : </mat-label>
+                    <input matInput type="text" [placeholder]="placeholderFleetVehicle" id="fleetVehicleNumber"
+                        formControlName="fleetVehicleNumber">
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('fleetVehicleNumber')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field class="clas-form-field" appearance="outline">
+                    <mat-label for="shippingPrice">Precio de envío: </mat-label>
+                    <input matInput type="number" placeholder="Ingrese el precio de envío" id="shippingPrice"
+                        formControlName="shippingPrice">
+                    <mat-hint class="text-danger">
+                        {{ErrorRequiredMsg('shippingPrice')}}
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <section>
+                    <mat-label for="isActive">Estado: </mat-label>
+                    <mat-checkbox type="checkbox" id="isActive" formControlName="isActive">
+                    </mat-checkbox>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex btn-actions">
+                <button class="btn-submit" type="submit" mat-button>
+                    Aceptar
+                </button>
+                <button class="btn-cancel" type="button" mat-button (click)="closeModal(false)">
+                    cancelar
+                </button>
+            </div>
+        </div>
+    </form>
+</app-cards-home>

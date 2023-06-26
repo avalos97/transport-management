@@ -1,0 +1,106 @@
+.bg-image {
+  background-image: url("/assets/images/login_background.svg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* ajusta la altura según tus necesidades */
+}
+
+.bg-image-grid {
+  background-image: url("/assets/images/login-image.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 30vh;
+  // position: relative;
+}
+
+.form-login {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.bg-image-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.greeting {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 48.76px;
+  color: #165c7d;
+  margin-bottom: 50px;
+}
+
+::ng-deep .mat-grid-tile-content {
+  display: grid !important;
+}
+
+.form-login {
+  position: relative;
+  z-index: 1;
+}
+
+.form-login:before {
+  content: "";
+  backdrop-filter: blur(8px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.form-content {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-form {
+  width: 160px;
+  height: 36px;
+
+  /* Primary/Naranja/Naranja 20 */
+
+  background: #165c7d;
+  color: #ffc600 !important;
+  border-radius: 10px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+@media screen and (max-width: 767px) {
+  mat-grid-list {
+    width: 90% !important;
+    height: 100%;
+  }
+
+  mat-grid-tile {
+    width: 100% !important;
+  }
+
+  .greeting {
+    font-size: 1.5rem;
+  }
+
+  .greeting > img {
+    width: 32px;
+  }
+
+  .bg-image-grid {
+    display: none;
+  }
+}

@@ -1,0 +1,37 @@
+mat-form-field {
+  width: 100%;
+}
+
+form {
+  margin-top: 30px;
+}
+.btn-actions {
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+
+.btn-submit {
+  width: 160px;
+  height: 36px;
+  background: #ffc600;
+  border-radius: 10px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.btn-cancel {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  width: 160px;
+  height: 36px;
+  border-radius: 10px;
+  margin-right: 10px;
+  border: solid 1px #01426a;
+  color: #01426a;
+}
