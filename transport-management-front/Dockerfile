@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install -g npm@8.1.2
 RUN npm install -g @angular/cli@15.2.4
-RUN npm ci --only=production
+RUN npm ci
 COPY . .
 
 RUN npm run build --prod
